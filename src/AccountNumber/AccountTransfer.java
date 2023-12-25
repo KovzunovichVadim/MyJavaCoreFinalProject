@@ -34,4 +34,28 @@ public class AccountTransfer extends AccountNumber{
         }
         return true;
     }
+
+    public String getSrcAccount() {
+        return srcAccount;
+    }
+
+    public void setSrcAccount(String srcAccount) {
+        this.srcAccount = srcAccount;
+    }
+
+    public String getDstAccount() {
+        return dstAccount;
+    }
+
+    public void setDstAccount(String dstAccount) {
+        this.dstAccount = dstAccount;
+    }
+
+    public int getAmountTransfer() {
+        return amountTransfer;
+    }
+
+    public void setAmountTransfer(int amountTransfer) {
+        this.amountTransfer = amountTransfer;
+    }
 }
