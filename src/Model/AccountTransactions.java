@@ -12,7 +12,6 @@ public class AccountTransactions {
     private static final int NUMBER_OF_OPERATION_ONE = 1;
     private static final int NUMBER_OF_OPERATION_TWO = 2;
     private static final int ARRAY_SIZE_TRANSFER = 3;
-    private static final int ARRAY_SIZE_ADD_MONEY = 2;
     private int number;
     private final String regex = "\\d{5}-\\d{5}\\s*\\|\\s*\\d{5}-\\d{5}\\s*\\|\\s*\\d+|\\d{5}-\\d{5}\\s*\\|\\s*\\d+";
     private String fileContentInput;
@@ -23,16 +22,17 @@ public class AccountTransactions {
 
     public void numberOperation() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter number of operation:\n" +
-                "   1. Calling the operation of parsing translation files from input\n" +
-                "   2. Calling the operation to display a list of all transfers from report file");
+        System.out.println("""
+                Enter number of operation:
+                   1. Calling the operation of parsing translation files from input
+                   2. Calling the operation to display a list of all transfers from report file""");
         number = scanner.nextInt();
 
         if (number == NUMBER_OF_OPERATION_ONE) {
             for (String filename : OperationWithFile.getFileInputNames()) {
                 if (filename.contains(".txt")) {
                     fileContentInput = OperationWithFile.fileInputReading(filename);
-                    List<String> arrayLists = Arrays.asList(fileContentInput.split("\\r*\\n"));
+                    String[] arrayLists = fileContentInput.split("\\r*\\n");
                     for (String arrayList : arrayLists) {
                         Pattern pattern = Pattern.compile(regex);
                         Matcher matcher = pattern.matcher(arrayList);
