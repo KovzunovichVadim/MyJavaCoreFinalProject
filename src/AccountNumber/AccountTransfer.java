@@ -1,7 +1,8 @@
 package AccountNumber;
+
 import java.util.Map;
 
-public class AccountTransfer extends AccountNumber{
+public class AccountTransfer extends AccountNumber {
     /*
      * srcAccount - debit from account
      * dstAccount - transfer to account

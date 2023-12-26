@@ -1,4 +1,5 @@
 package File;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -82,8 +83,8 @@ public class OperationWithFile {
     }
 
     public static boolean fileReportWriting(String writeInFile) {
-        try (FileWriter fileWriter = new FileWriter(FILE_REPORT_PATH,true)) {
-            fileWriter.write(writeInFile+ "\n");
+        try (FileWriter fileWriter = new FileWriter(FILE_REPORT_PATH, true)) {
+            fileWriter.write(writeInFile + "\n");
             fileWriter.flush();
             file = new File(FILE_REPORT_PATH);
         } catch (IOException e) {
