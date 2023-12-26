@@ -1,5 +1,4 @@
 package AccountNumber;
-
 import java.util.Map;
 
 public class AccountTransfer extends AccountNumber{
@@ -19,15 +18,15 @@ public class AccountTransfer extends AccountNumber{
     }
 
     @Override
-    public Map<String, Integer> getAccountNumber() {
-        return super.getAccountNumber();
+    public Map<String, Integer> getAccountNumber(String account) {
+        return super.getAccountNumber(account);
     }
 
-    public boolean transferMoney() {
-        if (getAccountNumber().containsKey(srcAccount)) {
-            if (getAccountNumber().get(srcAccount) - amountTransfer >= 0) {
-                getAccountNumber().replace(srcAccount, getAccountNumber().get(srcAccount) - amountTransfer);
-                getAccountNumber().replace(dstAccount, getAccountNumber().get(dstAccount) + amountTransfer);
+    public boolean transferMoney(Map<String, Integer> account) {
+        if (account.containsKey(srcAccount)) {
+            if (account.get(srcAccount) - amountTransfer >= 0 && amountTransfer >= 0) {
+                account.replace(srcAccount, account.get(srcAccount) - amountTransfer);
+                account.replace(dstAccount, account.get(dstAccount) + amountTransfer);
             } else {
                 return false;
             }
